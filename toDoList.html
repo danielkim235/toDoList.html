@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src = "main.js"></script>
+    <script>
+    let taskList = [];
+    </script>
+</head>
+<body>
+<div>
+    <h1 id="heading">Make order of your tasks.</h1>
+</div>
+<div class = "container" id = "inputBox">
+    <input type = "text" placeholder = "task" id = "taskInput"> 
+    <input type = "submit" value = "Add a task" id= "taskSubmit" onclick = "
+    let task = document.querySelector('#taskInput').value;
+    if(task !== ''){
+        taskList.push(task);
+    }
+    else{
+        alert('type text!');
+    }
+    console.log(taskList);
+    updateList(taskList,'#taskUl'); 
+
+    document.querySelector('#taskInput').value = '';
+    
+    ">
+    <input type = "button" value = "Reset" id= "resetButton" onclick = "
+    taskList = [];
+    updateList(taskList,'#taskUl');
+    console.log(taskList); 
+    ">
+
+    <ul id = "taskUl"></ul>
+
+    
+</div>
+
+<div class = "container" id = "outputBox">
+    <input type = "button" value = "Create Order!" onclick = "
+    shuffle(taskList);
+    console.log(taskList);
+    updateList(taskList,'#orderOl');
+    document.querySelector('#inputBox').innerHTML = '';
+    document.querySelector('#heading').innerHTML = 'To Do List';
+
+    ">
+    <ol id = "orderOl"></ol>
+</div>
+</body>
+</html>
